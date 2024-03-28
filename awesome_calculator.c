@@ -13,14 +13,14 @@ void operations() {
         printf("Invalid entry for number of values. Please enter a positive integer less than or equal to 99.\n");
         return;
     }
-    while (getchar() != '\n'); // Clear input buffer
+    while (getchar() != '\n');
 
     printf("\nEnter %d values, pressing the enter key after each value:\n", Num);
     for (i = 0; i < Num; i++) {
         printf("Value %d: ", i + 1);
         while (scanf("%f", &Value[i]) != 1) {
             printf("Invalid input. Please enter a numeric value.\n");
-            while (getchar() != '\n'); // Clear input buffer
+            while (getchar() != '\n');
             printf("Value %d: ", i + 1);
         }
         sum += Value[i];
@@ -42,8 +42,8 @@ void operations() {
 }
 
 int main() {
-    char input = 'y'; // Initialize input to 'y' to enter the loop
-    int scanf_result; // Variable to store the result of scanf
+    char input = 'y';
+    int scanf_result;
 
     printf("\n*************************************");
     printf("\n*         AWESOME CALCULATOR        *");
@@ -52,14 +52,14 @@ int main() {
     do {
         printf("\nWould you like to do an operation?\n\"Y\" = Yes\t\"N\" = No\n");
         scanf_result = scanf(" %c", &input);
-        if (scanf_result != 1 || (input != 'y' && input != 'Y' && input != 'n' && input != 'N')) { // Check for valid input
+        if (scanf_result != 1 || (input != 'y' && input != 'Y' && input != 'n' && input != 'N')) {
             printf("Invalid input. Please enter 'Y' or 'N'.\n");
-            input = 'y'; // Reset input to avoid infinite loop
-            while (getchar() != '\n'); // Clear input buffer
-            continue; // Skip the rest of the loop and restart
+            input = 'y';
+            while (getchar() != '\n');
+            continue;
         }
         if (input == 'y' || input == 'Y') {
-            operations(); // Call the function to calculate standard deviation
+            operations();
         }
     } while (input == 'y' || input == 'Y');
     
